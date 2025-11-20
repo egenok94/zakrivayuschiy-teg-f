@@ -11,6 +11,12 @@
 */
 
 .page {
+  font-family: var(--main-font);
+  background-image: var(--background-pattern);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--font-weight-card-desc);
 }
