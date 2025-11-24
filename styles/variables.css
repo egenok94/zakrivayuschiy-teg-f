@@ -12,4 +12,5 @@
   --font-size-card-desc: 18px;
   --margin-card-desc: 25px;
   --padding-header: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
+  --color-font-stroke: #fff;
 }
