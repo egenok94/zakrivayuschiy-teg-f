@@ -11,6 +11,7 @@
 */
 
 /* global */
+
 .button {
   position: relative;
   border: none;
@@ -24,7 +25,7 @@
 }
 
 .button:hover {
-  color:#000;
+  color: #000;
 }
 
 .button::after {
@@ -50,8 +51,6 @@
   box-shadow: 3px 3px 0 #000;
   transition: box-shadow 0.3s ease;
 }
-
-/*  */
 
 .page {
   font-family: var(--main-font);
@@ -118,7 +117,7 @@
 .card__title {
   padding: 4px 10px;
   font-size: 18px;
-  font-variation-settings: "wght" var(--font-weight-card-title);
+  font-variation-settings: 'wght' var(--font-weight-card-title);
 }
 
 .card__img-block {
@@ -126,34 +125,68 @@
 }
 
 .card__img {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
-  block-size: 100%;
+  block-size: 696px;
 }
 
 .img-block__text-logo {
   position: absolute;
-  top:25px;
-  right:25px;
-  opacity: 50%;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  opacity: 0.5;
   font-family: var(--accent-font);
   font-size: 14px;
   text-shadow:
-  -1px 0 var(--color-font-stroke), 
-  0 1px var(--color-font-stroke), 
-  1px 0 var(--color-font-stroke), 
-  0 -1px var(--color-font-stroke);
+    -1px 0 var(--color-font-stroke),
+    0 1px var(--color-font-stroke),
+    1px 0 var(--color-font-stroke),
+    0 -1px var(--color-font-stroke);
   mix-blend-mode: hard-light;
 }
 
-@supports((text-stroke: 1px var(--color-font-stroke)) or (-webkit-text-stroke: 1px var(--color-font-stroke))) {
+@supports (
+  (text-stroke: 1px var(--color-font-stroke)) or
+    (-webkit-text-stroke: 1px var(--color-font-stroke))
+) {
   .img-block__text-logo {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--color-font-stroke);
     text-stroke: 1px var(--color-font-stroke);
   }
-} 
+}
+
+.card:nth-of-type(2) .card__img {
+  filter: grayscale(0.8);
+}
+
+.card:nth-of-type(3) .card__img {
+  filter: saturate(160%);
+}
+
+.card:nth-of-type(4) .card__img {
+  filter: sepia(0.5);
+}
+
+.card:nth-of-type(5) .card__img {
+  filter: hue-rotate(-20deg);
+}
+
+.card:nth-of-type(6) .card__img {
+  filter: invert(0.4);
+}
+
+.card:nth-of-type(7) .card__img {
+  filter: blur(0.3em);
+}
+
+.card:nth-of-type(8) .card__img {
+  filter: grayscale(0.6) sepia(0.5);
+}
 
 .card__desc {
   display: grid;
@@ -167,7 +200,8 @@
 }
 
 .card__buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 130px;
   justify-self: end;
   gap: 7px;
 }
@@ -184,7 +218,7 @@
 }
 
 .button__heart:focus-visible {
-  outline: 2px solid #000; 
+  outline: 2px solid #000;
   transition: outline 0.3s ease;
 }
 
@@ -206,16 +240,16 @@
 }
 
 .main-body {
-  transition: linear fill 0.3s; 
+  transition: linear fill 0.3s;
 }
 
-.like-icon:hover .core{
+.like-icon:hover .core {
   fill: var(--heart-fill-contour);
   transition: linear fill 0.3s;
   transition-delay: 0;
 }
 
-.like-icon:hover .main-body{
+.like-icon:hover .main-body {
   fill: var(--heart-fill-contour);
   transition: linear fill 0.3s;
   transition-delay: 0.05s;
@@ -233,7 +267,7 @@
 }
 
 .like-icon.is-liked .contour {
-  fill:  var(--heart-fill-accent);
+  fill: var(--heart-fill-accent);
   transition: linear fill 0.3s;
   transition-delay: 0.06s;
 }
@@ -257,10 +291,6 @@
 .like-icon.is-liked .sparks {
   animation: spark-opacity 0.3s ease-in;
   animation-delay: 0.3s;
-}
-
-.button__like {
-  padding: 12.5px 37px ;
 }
 
 .button__save {
@@ -298,7 +328,6 @@
   grid-column: 1/3;
   padding-top: 12.5px;
   padding-bottom: 12.5px;
-  
 }
 
 .modal-window:not([open]) {
@@ -309,11 +338,9 @@
   display: grid;
 }
 
-
 .modal-window::backdrop {
   background-color: rgb(0 0 0 / 0.75);
-} 
-
+}
 
 @media (width < 376px) {
   .button__save {

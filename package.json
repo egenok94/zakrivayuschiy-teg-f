@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "check": "prettier --check ./styles/style.css",
+    "format": "prettier --write ./styles/style.css",
+    "lint": "stylelint ./styles/style.css",
+    "lintfix": "stylelint ./styles/style.css --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix"
+  },
+  "dependencies": {
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0"
+  }
+}
