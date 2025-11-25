@@ -1,1 +1,1 @@
-https://egenok94.github.io/zakrivayuschiy-teg-f/
+https://github.com/egenok94/zakrivayuschiy-teg-f/actions
