@@ -10,11 +10,12 @@
 
 */
 
-
 /* global */
 .button {
+  position: relative;
   border: none;
   outline: 2px solid #000;
+  overflow: hidden;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
@@ -23,26 +24,30 @@
 }
 
 .button:hover {
-  color:#fff;
+  color:#000;
 }
 
 .button::after {
-  content: "";
-  display: none;
-  background-color: #000;
-  transition: scale 0.5s ease-in-out;
-  block-size: 100%;
-  inline-size: 100%;
-  scale: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  mix-blend-mode: difference;
 }
 
-.button:hover > .button::after {
-  display: block;
+.button:hover::after {
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 #000;
-  outline: none;
+  box-shadow: 3px 3px 0 #000;
   transition: box-shadow 0.3s ease;
 }
 
@@ -65,6 +70,7 @@
 }
 
 .header {
+  margin-top: 100px;
   margin-bottom: 100px;
   font-family: var(--accent-font);
 }
@@ -80,6 +86,15 @@
   background-color: #fff;
 }
 
+.header__text > h1 {
+  font-size: var(--font-size-header-title);
+}
+
+.header__text > p {
+  font-size: var(--font-size-header-desc);
+  text-transform: uppercase;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -90,7 +105,7 @@
 
 .cards-list {
   display: grid;
-  gap: 50px;
+  gap: 52px;
 }
 
 .card {
@@ -103,7 +118,7 @@
 .card__title {
   padding: 4px 10px;
   font-size: 18px;
-  font-variation-settings: 'wght' var(--font-weight-card-title);
+  font-variation-settings: "wght" var(--font-weight-card-title);
 }
 
 .card__img-block {
@@ -142,7 +157,7 @@
 
 .card__desc {
   display: grid;
-  gap: 25px;
+  gap: 26px;
   margin: var(--margin-card-desc);
   font-size: var(--font-size-card-desc);
 }
@@ -159,7 +174,89 @@
 
 .button__heart {
   border: none;
+  outline: none;
   background: none;
+  transition: outline 0.3s ease;
+}
+
+.button__heart svg {
+  margin-top: 3px;
+}
+
+.button__heart:focus-visible {
+  outline: 2px solid #000; 
+  transition: outline 0.3s ease;
+}
+
+.like-icon {
+  transform-origin: center;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: linear fill 0.1s;
+}
+
+.core {
+  transition: linear fill 0.3s;
+  transition-delay: 0.03s;
+}
+
+.main-body {
+  transition: linear fill 0.3s; 
+}
+
+.like-icon:hover .core{
+  fill: var(--heart-fill-contour);
+  transition: linear fill 0.3s;
+  transition-delay: 0;
+}
+
+.like-icon:hover .main-body{
+  fill: var(--heart-fill-contour);
+  transition: linear fill 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-fill-accent);
+  transition: linear fill 0.3s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-fill-accent);
+  transition: linear fill 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill:  var(--heart-fill-accent);
+  transition: linear fill 0.3s;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-fill-accent);
+  transition: linear fill 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill-accent);
+  transition: linear fill 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in;
+  animation-delay: 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: spark-opacity 0.3s ease-in;
+  animation-delay: 0.3s;
 }
 
 .button__like {
@@ -171,11 +268,11 @@
   justify-items: center;
   align-items: center;
   gap: 8px;
-  padding: 17px 20px;
+  padding: 13px 15px;
 }
 
 .button-save__floppy {
-  block-size: 28px;
+  block-size: 25px;
 }
 
 .button__save:hover svg {
@@ -187,6 +284,7 @@
   align-items: center;
   row-gap: 30px;
   column-gap: 20px;
+  width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
   padding: 30px;
 }
 
@@ -215,3 +313,11 @@
 .modal-window::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 } 
+
+
+@media (width < 376px) {
+  .button__save {
+    flex-direction: column;
+    padding: 16px 17px;
+  }
+}

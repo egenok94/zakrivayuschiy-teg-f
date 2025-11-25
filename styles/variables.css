@@ -1,6 +1,6 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --main-font: "Inter", sans-serif;
+  --main-font: "Inter-Variable", sans-serif;
   --accent-font: "Press Start 2P", sans-serif;
   --font-weight-card-title: 715;
   --font-weight-card-desc: 410;
@@ -13,4 +13,8 @@
   --margin-card-desc: 25px;
   --padding-header: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
   --color-font-stroke: #fff;
+  --font-size-header-title: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  --font-size-header-desc: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  --heart-fill-contour: #000;
+  --heart-fill-accent: #ff0000;
 }
