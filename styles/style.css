@@ -43,13 +43,11 @@
 }
 
 .button:hover::after {
-  transition: transform 0.5s ease-in-out;
   transform: translateX(0);
 }
 
 .button:focus-visible {
   box-shadow: 3px 3px 0 #000;
-  transition: box-shadow 0.3s ease;
 }
 
 .page {
@@ -160,31 +158,31 @@
   }
 }
 
-.card:nth-of-type(2) .card__img {
+.grayscale-filter {
   filter: grayscale(0.8);
 }
 
-.card:nth-of-type(3) .card__img {
+.saturate-filter {
   filter: saturate(160%);
 }
 
-.card:nth-of-type(4) .card__img {
+.sepia-filter {
   filter: sepia(0.5);
 }
 
-.card:nth-of-type(5) .card__img {
+.hue-rotate-filter {
   filter: hue-rotate(-20deg);
 }
 
-.card:nth-of-type(6) .card__img {
+.invert-filter {
   filter: invert(0.4);
 }
 
-.card:nth-of-type(7) .card__img {
+.blur-filter {
   filter: blur(0.3em);
 }
 
-.card:nth-of-type(8) .card__img {
+.mixed-filter {
   filter: grayscale(0.6) sepia(0.5);
 }
 
@@ -202,8 +200,8 @@
 .card__buttons {
   display: grid;
   grid-template-columns: min-content 130px;
+  grid-template-rows: 37px;
   justify-self: end;
-  gap: 7px;
 }
 
 .button__heart {
@@ -219,8 +217,9 @@
 
 .button__heart:focus-visible {
   outline: 2px solid #000;
-  transition: outline 0.3s ease;
 }
+
+/* центрируем анимацию сердца */
 
 .like-icon {
   transform-origin: center;
@@ -316,6 +315,10 @@
   column-gap: 20px;
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
   padding: 30px;
+}
+
+.modal-window .button-save__floppy {
+  block-size: 39px;
 }
 
 .modal__text {
