@@ -128,7 +128,7 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
-  block-size: 696px;
+  aspect-ratio: 1 / 1;
 }
 
 .img-block__text-logo {
@@ -325,6 +325,7 @@
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 150%;
+  text-transform: uppercase;
 }
 
 .button__modal {
